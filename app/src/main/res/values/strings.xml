@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Calculator App</string>
+    <string name="fragment_label">Calculator</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Operand buttons -->
+    <string name="subtract">-</string>
+    <string name="addition">+</string>
+    <string name="multiplication">x</string>
+    <string name="division">/</string>
+    <string name="equals">=</string>
+    <string name="tangent">TAN</string>
+    <string name="cosine">COS</string>
+    <string name="sine">SIN</string>
+    <string name="log">log</string>
+    <string name="ln">ln</string>
+    <string name="factorial">!</string>
+    <string name="absolute">|x|</string>
+    <string name="e">e</string>
+    <string name="percent">%</string>
+
+    <!-- Number buttons -->
+    <string name="three">3</string>
+    <string name="size">6</string>
+    <string name="six">6</string>
+    <string name="nine">9</string>
+    <string name="two">2</string>
+    <string name="five">5</string>
+    <string name="eight">8</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="four">4</string>
+    <string name="seven">7</string>
+
+    <!-- Special buttons -->
+    <string name="decimal">.</string>
+
+    <string name="delete_description">Deletes a character from the calculation string</string>
+    <string name="inverse">INV</string>
+    <string name="rightParentheses">)</string>
+    <string name="leftParentheses">(</string>
+    <string name="exponent">^</string>
+</resources>

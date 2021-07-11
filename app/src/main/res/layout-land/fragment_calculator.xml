@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.calculatorapp.calculator.CalculatorViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/textCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <Button
+                    android:id="@+id/toggleButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="0dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:textColor="@color/deep_orange_700"
+                    android:onClick="@{() -> viewModel.onToggle()}"
+                    android:text="@{viewModel.toggleState}"
+                    tools:text="DEG" />
+
+                <TextView
+                    android:id="@+id/calculationTextLand"
+                    style="@style/calculationStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="@{viewModel.calculationString}"
+                    android:textSize="20sp"
+                    tools:text="48.2+1*2" />
+
+                <TextView
+                    android:id="@+id/resultsTextLand"
+                    style="@style/resultsStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:textSize="36sp"
+                    app:resultValue="@{viewModel.result}"
+                    tools:text="50.2" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/complexOperationCardView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:cardBackgroundColor="@color/deep_orange_400"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cardView3"
+                app:layout_constraintTop_toBottomOf="@+id/textCardView">
+
+                <Button
+                    android:id="@+id/inverseButton"
+                    style="@style/complexButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/inverse" />
+
+                <Button
+                    android:id="@+id/degRedButton"
+                    style="@style/complexButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="105dp"
+                    android:layout_marginTop="5dp"
+                    android:onClick="@{() -> viewModel.onToggle()}"
+                    android:text="@{viewModel.toggleState}"
+                    tools:text="DEG" />
+
+                <Button
+                    android:id="@+id/percentButton"
+                    style="@style/complexButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="195dp"
+                    android:layout_marginTop="5dp"
+                    android:onClick="@{() -> viewModel.onPercent()}"
+                    android:text="@string/percent" />
+
+                <Button
+                    android:id="@+id/sineButton"
+                    style="@style/complexButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="50dp"
+                    android:text="@string/sine" />
+
+                <Button
+                    android:id="@+id/cosineButton"
+                    style="@style/complexButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="105dp"
+                    android:layout_marginTop="50dp"
+                    android:text="@string/cosine" />
+
+                <Button
+                    android:id="@+id/tangentButton"
+                    style="@style/complexButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="195dp"
+                    android:layout_marginTop="50dp"
+                    android:text="@string/tangent" />
+
+                <Button
+                    android:id="@+id/naturalLogButton"
+                    style="@style/complexButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="280dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/ln" />
+
+                <Button
+                    android:id="@+id/logButton"
+                    style="@style/complexButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="280dp"
+                    android:layout_marginTop="50dp"
+                    android:text="@string/log" />
+
+                <Button
+                    android:id="@+id/piButton"
+                    style="@style/complexButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="95dp"
+                    android:text="PI" />
+
+                <Button
+                    android:id="@+id/eulersNumberButton"
+                    style="@style/complexButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="105dp"
+                    android:layout_marginTop="95dp"
+                    android:text="@string/e" />
+
+                <Button
+                    android:id="@+id/exponentButton"
+                    style="@style/complexButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="195dp"
+                    android:layout_marginTop="95dp"
+                    android:text="@string/exponent" />
+
+                <Button
+                    android:id="@+id/leftParenthesesButton"
+                    style="@style/complexButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginBottom="5dp"
+                    android:onClick="@{() -> viewModel.onParentheses('(')}"
+                    android:text="@string/leftParentheses" />
+
+                <Button
+                    android:id="@+id/rightParenthesesButton"
+                    style="@style/complexButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="105dp"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginBottom="5dp"
+                    android:onClick="@{() -> viewModel.onParentheses(')')}"
+                    android:text="@string/rightParentheses" />
+
+                <Button
+                    android:id="@+id/factorialButton"
+                    style="@style/complexButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="195dp"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginBottom="5dp"
+                    android:onClick="@{() -> viewModel.onFactorial()}"
+                    android:text="@string/factorial" />
+
+                <Button
+                    android:id="@+id/sqrtButton"
+                    style="@style/complexButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="280dp"
+                    android:layout_marginTop="95dp"
+                    android:text="sqrt" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@+id/complexOperationCardView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textCardView">
+
+                <Button
+                    android:id="@+id/sevenButtonLand"
+                    style="@style/numberButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginBottom="10dp"
+                    android:onClick="@{() -> viewModel.onNumber(7)}"
+                    android:text="@string/seven" />
+
+                <Button
+                    android:id="@+id/fourButtonLand"
+                    style="@style/numberButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="95dp"
+                    android:onClick="@{() -> viewModel.onNumber(4)}"
+                    android:text="@string/four" />
+
+                <Button
+                    android:id="@+id/oneButtonLand"
+                    style="@style/numberButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="50dp"
+                    android:onClick="@{() -> viewModel.onNumber(1)}"
+                    android:text="@string/one" />
+
+                <Button
+                    android:id="@+id/eightButtonLand"
+                    style="@style/numberButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="85dp"
+                    android:layout_marginTop="95dp"
+                    android:onClick="@{() -> viewModel.onNumber(8)}"
+                    android:text="@string/eight" />
+
+                <Button
+                    android:id="@+id/zeroButtonLand"
+                    style="@style/numberButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:onClick="@{() -> viewModel.onNumber(0)}"
+                    android:text="@string/zero"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/twoButtonLand"
+                    style="@style/numberButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="85dp"
+                    android:layout_marginTop="5dp"
+                    android:onClick="@{() -> viewModel.onNumber(2)}"
+                    android:text="@string/two" />
+
+                <Button
+                    android:id="@+id/fiveButtonLand"
+                    style="@style/numberButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="85dp"
+                    android:layout_marginTop="50dp"
+                    android:onClick="@{() -> viewModel.onNumber(5)}"
+                    android:text="@string/five" />
+
+                <Button
+                    android:id="@+id/decimalButtonLand"
+                    style="@style/numberButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="85dp"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginBottom="10dp"
+                    android:onClick="@{() -> viewModel.onDecimal()}"
+                    android:text="@string/decimal" />
+
+                <Button
+                    android:id="@+id/nineButtonLand"
+                    style="@style/numberButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="165dp"
+                    android:layout_marginTop="5dp"
+                    android:onClick="@{() -> viewModel.onNumber(9)}"
+                    android:text="@string/nine" />
+
+                <Button
+                    android:id="@+id/sixButtonLand"
+                    style="@style/numberButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="165dp"
+                    android:layout_marginTop="50dp"
+                    android:onClick="@{() -> viewModel.onNumber(6)}"
+                    android:text="@string/six" />
+
+                <Button
+                    android:id="@+id/threeButtonLand"
+                    style="@style/numberButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="165dp"
+                    android:layout_marginTop="95dp"
+                    android:onClick="@{() -> viewModel.onNumber(3)}"
+                    android:text="@string/three" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="3dp"
+                    android:layout_height="258dp"
+                    android:layout_marginStart="245dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="?android:attr/listDivider" />
+
+                <ImageButton
+                    android:id="@+id/deleteButtonLand"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="330dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="@string/delete_description"
+                    android:onClick="@{() -> viewModel.onDelete()}"
+                    app:srcCompat="@drawable/ic_baseline_backspace_24"
+                    app:tint="@color/deep_orange_700" />
+
+                <Button
+                    android:id="@+id/divisionButtonLand"
+                    style="@style/calculatorButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="255dp"
+                    android:layout_marginTop="5dp"
+                    android:onClick="@{() -> viewModel.onOperand('/')}"
+                    android:text="@string/division" />
+
+                <Button
+                    android:id="@+id/multiplyButtonLand"
+                    style="@style/calculatorButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="255dp"
+                    android:layout_marginTop="50dp"
+                    android:onClick="@{() -> viewModel.onOperand('x')}"
+                    android:text="@string/multiplication" />
+
+                <Button
+                    android:id="@+id/additionButtonLand"
+                    style="@style/calculatorButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="255dp"
+                    android:layout_marginTop="95dp"
+                    android:onClick="@{() -> viewModel.onOperand('+')}"
+                    android:text="@string/addition" />
+
+                <Button
+                    android:id="@+id/subtractButtonLand"
+                    style="@style/calculatorButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="255dp"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginBottom="10dp"
+                    android:onClick="@{() -> viewModel.onOperand('-')}"
+                    android:text="@string/subtract" />
+
+                <Button
+                    android:id="@+id/equalsButtonLand"
+                    style="@style/calculatorButtonStyle"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="330dp"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginBottom="10dp"
+                    android:onClick="@{() -> viewModel.onEquals()}"
+                    android:text="@string/equals" />
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
